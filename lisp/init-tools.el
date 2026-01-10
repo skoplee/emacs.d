@@ -40,5 +40,26 @@
   (setq company-minimum-prefix-length 2)
   (setq company-idle-delay 0))
 
+;; eglot
+(require 'eglot)
+(add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd"))
+(add-hook 'c-mode-hook #'eglot-ensure)
+(add-hook 'c++-mode-hook #'eglot-ensure)
+(setq quickrun-output-only t)
+
+(use-package quickrun
+  :commands (quickrun)
+  :config
+  (setq quickrun-output-only t)
+  :init
+  (quickrun-add-command "c/gcc"
+    '((:command . "gcc")
+      (:exec . ("%c -std=c11 %o -o %e %s"
+                "%e %a"))
+      (:remove . ("%e")))
+    :default "c"))
+
+(global-set-key (kbd "<f5>") 'quickrun)
+
 ;; file end--------------
 (provide 'init-tools)

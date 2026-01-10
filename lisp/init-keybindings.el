@@ -7,5 +7,8 @@
 ;; 删除整行
 (global-set-key (kbd "C-k") 'kill-whole-line)
 
+;; org-agenda setting
+(global-set-key (kbd "C-c a") 'org-agenda)
+
 ;;
 (provide 'init-keybindings)

@@ -9,4 +9,5 @@
 (require 'init-funcs)
 (require 'init-keybindings)
 (require 'init-tools)
-
+(require 'init-org)
+(require 'init-evil)

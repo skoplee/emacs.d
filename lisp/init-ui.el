@@ -32,16 +32,28 @@
   (progn
     (setq column-number-mode t)))
 
-;; 状态栏显示按键
-(use-package keycast
-  :config
-  (keycast-mode-line-mode t))
+
 
 ;; 状态栏主题
 (use-package doom-modeline
   :ensure t
+;  :custom-face
+;  (mode-line ((t (:height 2))))
+;  (mode-line-inactive ((t (:height 1.9))))
   :init
   (doom-modeline-mode t))
+
+(use-package keycast
+  :hook (after-init . keycast-mode)
+  :config
+  (define-minor-mode keycast-mode
+	"Show current command and its key binding in the mode line (fix for use with doom-modeline)."
+	:global t
+	(if keycast-mode
+		(add-hook 'pre-command-hook 'keycast--update t)
+      (remove-hook 'pre-command-hook 'keycast--update)))
+
+  (add-to-list 'global-mode-string '("" keycast-mode-line)))
 
 
 ;; file end-------------------
