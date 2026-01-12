@@ -11,6 +11,7 @@
 ;; 关闭~备份文件
 (setq make-backup-files nil)
 (setq make-save-default nil)
+(setq auto-save-default nil)
 
 ;; 输入替换选中
 (delete-selection-mode t)

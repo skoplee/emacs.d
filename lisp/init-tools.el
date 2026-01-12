@@ -42,12 +42,13 @@
   (setq company-minimum-prefix-length 2)
   (setq company-idle-delay 0))
 
-;; eglot
-(require 'eglot)
-(add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd"))
-(add-hook 'c-mode-hook #'eglot-ensure)
-(add-hook 'c++-mode-hook #'eglot-ensure)
-(setq quickrun-output-only t)
+;; eglot 补全
+(use-package eglot
+  :ensure t
+  :hook ((c-ts-mode c++-mode) . eglot-ensure)
+  :config
+  (add-to-list 'eglot-server-programs
+               '((c-mode c++-mode) . ("clangd" "--header-insertion=never"))))
 
 ;; 快速调试代码
 (use-package quickrun
@@ -80,12 +81,37 @@
 ;; 语法高量 <https://book.emacs-china.org/#org4dc86a5>
 (use-package treesit-auto
   :demand t
+  :init
+  (setq treesit-font-lock-level 4)
   :config
   (setq treesit-auto-install 'prompt)
   (global-treesit-auto-mode))
 
+;; 代码展开 占位符
+(use-package yasnippet
+  :ensure t
+  :hook ((prog-mode . yas-minor-mode)
+         (org-mode . yas-minor-mode))
+  :init
+  :config
+  (progn
+    (setq hippie-expand-try-functions-list
+          '(yas/hippie-try-expand
+            try-complete-file-name-partially
+            try-expand-all-abbrevs
+            try-expand-dabbrev
+            try-expand-dabbrev-all-buffers
+            try-expand-dabbrev-from-kill
+            try-complete-lisp-symbol-partially
+            try-complete-lisp-symbol))))
+
+(use-package yasnippet-snippets
+  :ensure t
+  :after yasnippet)
 
 
+;; 头文件和源文件之间进行跳转
+;; ff-find-related-file
 
 
 ;; file end--------------

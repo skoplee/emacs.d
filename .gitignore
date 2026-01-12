@@ -2,4 +2,5 @@
 !init.el
 !lisp/
 !lisp/**
+/lisp/.DS_Store
 !.gitignore

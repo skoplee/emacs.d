@@ -9,7 +9,8 @@
    '(company doom-modeline embark-consult evil evil-anzu evil-collection
 	     evil-matchit evil-nerd-commenter evil-snipe evil-surround
 	     gruvbox-theme keycast marginalia orderless org-contrib
-	     quickrun restart-emacs undo-tree vertico))
+	     quickrun restart-emacs undo-tree vertico yasnippet
+	     yasnippet-snippets))
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
