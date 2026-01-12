@@ -4,7 +4,10 @@
   (setq evil-want-keybinding nil)
   (setq evil-want-C-u-scroll t)
   (evil-mode)
+  (with-eval-after-load 'evil-maps
+    (define-key evil-motion-state-map (kbd "RET") nil))
 
+  :config
   (setcdr evil-insert-state-map nil)
   (define-key evil-insert-state-map [escape] 'evil-normal-state)
 
@@ -22,11 +25,7 @@
   "q" 'quit-window
   "`" 'dired-open-term
   "o" 'dired-find-file-other-window
-  ")" 'dired-omit-mode)
-
-  ;; https://emacs.stackexchange.com/questions/46371/how-can-i-get-ret-to-follow-org-mode-links-when-using-evil-mode
-  (with-eval-after-load 'evil-maps
-    (define-key evil-motion-state-map (kbd "RET") nil)))
+  ")" 'dired-omit-mode))
 ;; 显示*号查找后的文件顺序
 (use-package evil-anzu
   :ensure t
@@ -85,6 +84,20 @@
   :init
   (global-evil-matchit-mode 1))
 
+;; vim多光标操作
+(use-package iedit
+  :ensure t
+  :init
+  (setq iedit-toggle-key-default nil)
+  :config
+  (define-key iedit-mode-keymap (kbd "M-h") 'iedit-restrict-function)
+  (define-key iedit-mode-keymap (kbd "M-i") 'iedit-restrict-current-line))
+
+(use-package evil-multiedit
+  :ensure t
+  :commands (evil-multiedit-default-keybinds)
+  :init
+  (evil-multiedit-default-keybinds))
 
 
 

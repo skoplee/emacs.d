@@ -1,23 +1,23 @@
-;;; 	keycast: 在 modeline 显示按键和命令
 ;;	vertico: 垂直补全框架
-;;	orderless: 灵活的补全样式
-;;	marginalia: 在 minibuffer 中显示额外信息
-;;	embark: 上下文操作框架
-;;	embark-consult: embark 与 consult 的集成
-
-
 (use-package vertico
   :init
   (vertico-mode t))
 
+;; make c-j/c-k work in vertico selection
+(define-key vertico-map (kbd "C-j") 'vertico-next)
+(define-key vertico-map (kbd "C-k") 'vertico-previous)
+
+;;	orderless: 灵活的补全样式
 (use-package orderless
   :init
   (setq completion-styles '(orderless)))
 
+;;	marginalia: 在 minibuffer 中显示额外信息
 (use-package marginalia
   :init
   (marginalia-mode t))
 
+;;	embark: 上下文操作框架
 (use-package embark
   :bind
   (("C-;" . embark-act))
@@ -28,11 +28,13 @@
   :bind (("C-s" . consult-line)
          ("C-c f" . consult-imenu)))
 
+;;	embark-consult: embark 与 consult 的集成
 (use-package embark-consult
   :after (embark consult)
   :hook
   (embark-collect-mode . embark-consult-preview-minor-mode))
 
+;; 补全
 (use-package company
   :init
   (global-company-mode t)
@@ -47,6 +49,7 @@
 (add-hook 'c++-mode-hook #'eglot-ensure)
 (setq quickrun-output-only t)
 
+;; 快速调试代码
 (use-package quickrun
   :commands (quickrun)
   :config
@@ -58,8 +61,32 @@
                 "%e %a"))
       (:remove . ("%e")))
     :default "c"))
-
 (global-set-key (kbd "<f5>") 'quickrun)
+
+
+;; 选中单词后用<C-r>来进行替换操作
+(defun skopliuu/evil-quick-replace (beg end )
+  (interactive "r")
+  (when (evil-visual-state-p)
+    (evil-exit-visual-state)
+    (let ((selection (regexp-quote (buffer-substring-no-properties beg end))))
+      (setq command-string (format "%%s /%s//g" selection))
+      (minibuffer-with-setup-hook
+          (lambda () (backward-char 2))
+        (evil-ex command-string)))))
+
+(define-key evil-visual-state-map (kbd "C-r") 'skopliuu/evil-quick-replace)
+
+;; 语法高量 <https://book.emacs-china.org/#org4dc86a5>
+(use-package treesit-auto
+  :demand t
+  :config
+  (setq treesit-auto-install 'prompt)
+  (global-treesit-auto-mode))
+
+
+
+
 
 ;; file end--------------
 (provide 'init-tools)
