@@ -5,6 +5,9 @@
 (setq inhibit-startup-screen t)
 (setq inhibit-startup-message t)
 
+;; 关闭edoc
+(global-eldoc-mode nil)
+
 ;; yes or no --> 'y-or-n
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -46,6 +49,7 @@
 (use-package saveplace
   :ensure nil
   :hook (after-init . save-place-mode))
+
 
 ;; 自存内容
 (setq custom-file (expand-file-name "~/.emacs.d/lisp/custom.el"))

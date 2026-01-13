@@ -28,7 +28,44 @@
 
 (global-set-key (kbd "C-c r") 'org-capture)
 
+;; 插入图片,操作图片
+(use-package org-download
+  :ensure t
+  :demand t
+  :after org
+  :config
+  (add-hook 'dired-mode-hook 'org-download-enable)
+  (setq org-download-screenshot-method "screencapture -i %s")
+  (setq org-download-screenshot-file 
+	(expand-file-name "screenshot.png" temporary-file-directory))
+  (defun org-download-annotate-default (link)
+    "Annotate LINK with the time of download."
+    (make-string 0 ?\s))
 
+  ;; 其他设置
+  (setq-default org-download-heading-lvl nil
+		;; 图片保存目录（相对于当前org文件）
+                org-download-image-dir "./img"))
+
+;; 解决return按键在orgmode中的问题
+(setq org-return-follows-link t)
+
+
+;; 翻译
+(defun skop-smart-bing-dict ()
+  (interactive)
+  (let ((word (thing-at-point 'word)))
+    (if word
+        (bing-dict-brief word)
+      (call-interactively 'bing-dict-brief))))
+
+(use-package bing-dict
+  :ensure t
+  :commands (bing-dict-brief) 
+  :config
+  (general-define-key
+   :states '(normal insert emacs)
+   ", e" 'skop-smart-bing-dict))
 
 ;; end file
 (provide 'init-org)
