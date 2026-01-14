@@ -195,8 +195,10 @@
 ;; ff-find-related-file
 
 
-(use-package general
-  :ensure t)
+
+(general-create-definer my-leader-def
+  ;; :prefix my-leader
+  :prefix ",")
 
 ;; file end--------------
 (provide 'init-tools)

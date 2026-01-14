@@ -61,11 +61,7 @@
 
 (use-package bing-dict
   :ensure t
-  :commands (bing-dict-brief) 
-  :config
-  (general-define-key
-   :states '(normal insert emacs)
-   ", e" 'skop-smart-bing-dict))
+  :commands (bing-dict-brief))
 
 ;; end file
 (provide 'init-org)
