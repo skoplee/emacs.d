@@ -5,13 +5,14 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(bing-dict company doom-modeline embark-consult evil-anzu
-	       evil-collection evil-matchit evil-multiedit
-	       evil-nerd-commenter evil-snipe evil-surround general
-	       gruvbox-theme keycast marginalia orderless org-contrib
-	       org-download quickrun restart-emacs tabspaces
+   '(bing-dict buffer-move company consult corfu doom-modeline embark
+	       embark-consult es-windows evil-anzu evil-collection
+	       evil-matchit evil-multiedit evil-nerd-commenter
+	       evil-snipe evil-surround general gruvbox-theme keycast
+	       marginalia orderless org-contrib org-download popper
+	       quickrun resize-window restart-emacs tabspaces
 	       tree-sitter treesit-auto undo-tree vertico
-	       yasnippet-snippets)))
+	       window-numbering yasnippet-snippets)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

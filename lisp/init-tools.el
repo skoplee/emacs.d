@@ -35,12 +35,12 @@
   (embark-collect-mode . embark-consult-preview-minor-mode))
 
 ;; 补全
-(use-package company
-  :init
-  (global-company-mode t)
-  :config
-  (setq company-minimum-prefix-length 2)
-  (setq company-idle-delay 0))
+;; (use-package company
+;;   :init
+;;   (global-company-mode t)
+;;   :config
+;;   (setq company-minimum-prefix-length 2)
+;;   (setq company-idle-delay 0))
 
 ;; eglot 补全
 (use-package eglot
@@ -121,8 +121,8 @@
 
   (custom-set-faces
    '(tab-bar ((t (:inherit mode-line))))
-   '(tab-bar-tab ((t (:inherit mode-line :foreground "#A2E4B8"))))
-   '(tab-bar-tab-inactive ((t (:inherit mode-line-inactive :foreground "mint")))))
+   '(tab-bar-tab ((t (:inherit mode-line :foreground "mint"))))
+   '(tab-bar-tab-inactive ((t (:inherit mode-line-inactive :foreground "#A2E4B8" :background "black")))))
 
   (defvar ct/circle-numbers-alist
     '((0 . "⓪")
@@ -196,9 +196,24 @@
 
 
 
-(general-create-definer my-leader-def
-  ;; :prefix my-leader
-  :prefix ",")
+;; (general-create-definer my-leader-def
+;;   ;; :prefix my-leader
+;;   :prefix ",")
 
+(use-package corfu
+  :init
+  (progn
+    (setq corfu-auto t)
+    (setq corfu-cycle t)
+    (setq corfu-quit-at-boundary t)
+    (setq corfu-quit-no-match t)
+    (setq corfu-preview-current nil)
+    (setq corfu-min-width 80)
+    (setq corfu-max-width 100)
+    (setq corfu-auto-delay 0.2)
+    (setq corfu-auto-prefix 1)
+    (setq corfu-on-exact-match nil)
+    (global-corfu-mode)
+    ))
 ;; file end--------------
 (provide 'init-tools)

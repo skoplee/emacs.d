@@ -1,6 +1,8 @@
 ;; 显示行号
 (global-display-line-numbers-mode t)
 
+;; 关闭滚动条
+(scroll-bar-mode -1) 
 
 ;; 关闭文件滑动控件
 (scroll-bar-mode 1)

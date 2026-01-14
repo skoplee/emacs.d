@@ -7,6 +7,7 @@
 (require 'init-basic)
 (require 'init-funcs)
 (require 'init-evil)
-(require 'init-keybindings)
 (require 'init-tools)
+(require 'init-keybindings)
 (require 'init-org)
+(require 'init-window)

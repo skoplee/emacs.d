@@ -6,7 +6,7 @@
 (setq inhibit-startup-message t)
 
 ;; 关闭edoc
-(global-eldoc-mode nil)
+(global-eldoc-mode -1)
 
 ;; yes or no --> 'y-or-n
 (fset 'yes-or-no-p 'y-or-n-p)

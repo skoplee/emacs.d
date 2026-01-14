@@ -23,50 +23,49 @@
   (general-emacs-define-key 'global [remap imenu] 'consult-imenu)
   (general-emacs-define-key 'global [remap apropos] 'consult-apropos)
   (global-definer
-    ;; "!" 'shell-command
-    ;; ":" 'eval-expression
-    ;; "SPC" 'execute-extended-command
-    ;; "x" 'switch-to-scratch-buffer
-    ;; "TAB" 'spacemacs/alternate-buffer
-    ;; "'" 'vertico-repeat
-    ;; "=" 'indent-buffer
-    ;; "+" 'text-scale-increase
-    ;; "-" 'text-scale-decrease
-    ;; "u" 'universal-argument
-    ;; "v" 'er/expand-region
-    ;; "0" 'select-window-0
-    ;; "1" 'select-window-1
-    ;; "2" 'select-window-2
-    ;; "3" 'select-window-3
-    ;; "4" 'select-window-4
-    ;; "5" 'select-window-5
-    ;; ";" 'vterm
-    ;; "`" 'multi-vterm-project
-    ;; "hdf" 'describe-function
-    ;; "hdv" 'describe-variable
-    ;; "hdk" 'describe-key
-    ;; "qq" 'save-buffers-kill-terminal
-    ;; "qR" 'restart-emacs
-    ;; "hh" 'zilongshanren/highlight-dwim
-    ;; "hc" 'zilongshanren/clearn-highlight
-    ;; "en" 'my-goto-next-error
-    ;; "ry" 'consult-yank-pop
-    ;; "R" 'zilongshanren/run-current-file
-    ;; "ep" 'my-goto-previous-error
-    ;; "el" 'my-list-errors
-    ;; "oy" 'my/eudic
-    ;; "oo" 'zilongshanren/hotspots
-    ;; "or" 'org-roam-node-find
-    ;; "gs" 'magit-status
-    ;; "gd" 'vc-diff
-    ;; "gg" 'xref-find-definitions
-    ;; "gr" 'xref-find-references
-    ;; "gm" 'consult-mark
-    ;; "gM" 'consult-global-mark
+    "!" 'shell-command
+    ":" 'eval-expression
+    "SPC" 'execute-extended-command
+    "x" 'switch-to-scratch-buffer
+    "TAB" 'spacemacs/alternate-buffer
+    "'" 'vertico-repeat
+    "=" 'indent-buffer
+    "+" 'text-scale-increase
+    "-" 'text-scale-decrease
+    "u" 'universal-argument
+    "v" 'er/expand-region
+    "0" 'select-window-0
+    "1" 'select-window-1
+    "2" 'select-window-2
+    "3" 'select-window-3
+    "4" 'select-window-4
+    "5" 'select-window-5
+    ";" 'vterm
+    "`" 'multi-vterm-project
+    "hdf" 'describe-function
+    "hdv" 'describe-variable
+    "hdk" 'describe-key
+    "qq" 'save-buffers-kill-terminal
+    "qR" 'restart-emacs
+    "hh" 'zilongshanren/highlight-dwim
+    "hc" 'zilongshanren/clearn-highlight
+    "en" 'my-goto-next-error
+    "ry" 'consult-yank-pop
+    "R" 'zilongshanren/run-current-file
+    "ep" 'my-goto-previous-error
+    "el" 'my-list-errors
+    "oy" 'my/eudic
+    "oo" 'zilongshanren/hotspots
+    "or" 'org-roam-node-find
+    "gs" 'magit-status
+    "gd" 'vc-diff
+    "gg" 'xref-find-definitions
+    "gr" 'xref-find-references
+    "gm" 'consult-mark
+    "gM" 'consult-global-mark
     )
 
   (+general-global-menu! "search" "s"
-    "j" 'my/imenu
     "p" 'consult-ripgrep
     "k" 'consult-keep-lines
     "f" 'consult-focus-lines)
@@ -110,10 +109,8 @@
     "w" 'sudo-edit
     "S" 'save-some-buffers
     "j"  'dired-jump
-    "y" 'copy-file-name
-    "R" 'my/rename-current-buffer-file
-    "k" 'my/delete-file-and-buffer
-    "!" 'my/exec-shell-on-buffer)
+    "y" 'copy-file-name)
+
 
   (+general-global-menu! "window" "w"
     "/" 'split-window-right
@@ -158,7 +155,7 @@
     "a" 'project-remember-projects-under
     "x" 'project-forget-project)
   (global-leader
-    :states '(normal insert emacs)
+    ;; :states '(normal insert emacs)
     "e" 'skop-smart-bing-dict)
   )
 
