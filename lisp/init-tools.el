@@ -34,14 +34,6 @@
   :hook
   (embark-collect-mode . embark-consult-preview-minor-mode))
 
-;; 补全
-;; (use-package company
-;;   :init
-;;   (global-company-mode t)
-;;   :config
-;;   (setq company-minimum-prefix-length 2)
-;;   (setq company-idle-delay 0))
-
 ;; eglot 补全
 (use-package eglot
   :ensure t
@@ -215,5 +207,38 @@
     (setq corfu-on-exact-match nil)
     (global-corfu-mode)
     ))
+
+(use-package sis
+  ;; :hook
+  ;; 为指定的缓冲区启用 /context/ 和 /inline region/ 模式
+  ;; (((text-mode prog-mode) . sis-context-mode)
+  ;;  ((text-mode prog-mode) . sis-inline-mode))
+  ;; >> brew tap laishulu/homebrew
+  ;; >> brew install macism
+
+  :config
+  ;; 用于 MacOS
+  (sis-ism-lazyman-config
+
+   ;; 英文输入源可能是："ABC"、"US" 或其他
+   ;; "com.apple.keylayout.ABC"
+   "com.apple.keylayout.ABC"
+
+   ;; 其他语言输入源："rime"、"sogou" 或其他 
+   ;; "im.rime.inputmethod.Squirrel.Rime"
+   "com.sogou.inputmethod.SCIM.WBX")
+
+  ;; 启用 /光标颜色/ 模式
+  (sis-global-cursor-color-mode t)
+  ;; 启用 /respect/ 模式
+  (sis-global-respect-mode t)
+  ;; 为所有缓冲区启用 /context/ 模式
+  (sis-global-context-mode t)
+  ;; 为所有缓冲区启用 /inline english/ 模式
+  (sis-global-inline-mode t))
+
+
+
+
 ;; file end--------------
 (provide 'init-tools)

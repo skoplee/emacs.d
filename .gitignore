@@ -3,4 +3,5 @@
 !lisp/
 !lisp/**
 /lisp/.DS_Store
+/lisp/custom.el
 !.gitignore

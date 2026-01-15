@@ -31,6 +31,7 @@
 (require 'recentf)
 (recentf-mode 1)
 (setq recentf-max-menu-item 10)
+(global-set-key (kbd "C-x C-f") 'recentf-open-files)
 
 ;; 记住上次的命令
 (use-package savehist
