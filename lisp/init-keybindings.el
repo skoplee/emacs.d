@@ -13,11 +13,10 @@
 ;; 提示按键下一步
 (use-package which-key
   :hook (after-init . which-key-mode)
-  :ensure t
   :init
   (setq which-key-side-window-location 'bottom))
 
-
+;; 按键管理
 (use-package general
   :init
   (general-emacs-define-key 'global [remap imenu] 'consult-imenu)
@@ -31,6 +30,7 @@
     "'" 'vertico-repeat
     "=" 'indent-buffer
     "+" 'text-scale-increase
+;; Recentf
     "-" 'text-scale-decrease
     "u" 'universal-argument
     "v" 'er/expand-region

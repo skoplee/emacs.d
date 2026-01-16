@@ -206,6 +206,10 @@
     (setq corfu-auto-prefix 1)
     (setq corfu-on-exact-match nil)
     (global-corfu-mode)
+
+    (add-hook 'org-mode-hook
+              (lambda ()
+                (corfu-mode -1)))
     ))
 
 (use-package sis
@@ -229,7 +233,7 @@
    "com.sogou.inputmethod.SCIM.WBX")
 
   ;; 启用 /光标颜色/ 模式
-  (sis-global-cursor-color-mode t)
+  (sis-global-cursor-color-mode nil)
   ;; 启用 /respect/ 模式
   (sis-global-respect-mode t)
   ;; 为所有缓冲区启用 /context/ 模式

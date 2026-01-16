@@ -28,10 +28,11 @@
 
 
 ;; 记住最近打开的文件
-(require 'recentf)
-(recentf-mode 1)
-(setq recentf-max-menu-item 10)
-(global-set-key (kbd "C-x C-f") 'recentf-open-files)
+(use-package recentf
+  :hook (after-init . recentf-mode)
+  ;; recentf-open since v29.1, recentf-open-files since v22
+  :bind (("C-c r" . #'recentf-open)))
+
 
 ;; 记住上次的命令
 (use-package savehist
