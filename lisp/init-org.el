@@ -1,5 +1,13 @@
 (require 'org-tempo)
 
+;; set tab width
+(add-hook 'org-mode-hook
+		  (lambda ()
+			(setq tab-width 4)))
+
+;;
+(setq org-indent-mode 1)
+
 (use-package org-contrib
   :pin nongnu)
 

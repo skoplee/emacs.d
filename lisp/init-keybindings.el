@@ -42,9 +42,9 @@
     "5" 'select-window-5
     ";" 'vterm
     "`" 'multi-vterm-project
-    "hdf" 'describe-function
-    "hdv" 'describe-variable
-    "hdk" 'describe-key
+    "hf" 'describe-function
+    "hv" 'describe-variable
+    "hk" 'describe-key
     "qq" 'save-buffers-kill-terminal
     "qR" 'restart-emacs
     "hh" 'zilongshanren/highlight-dwim

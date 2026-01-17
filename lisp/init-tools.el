@@ -36,7 +36,7 @@
 
 ;; eglot 补全
 (use-package eglot
-  :ensure t
+  :ensure nil
   :hook ((c-ts-mode c++-ts-mode) . eglot-ensure)
   :config
   (add-to-list 'eglot-server-programs
@@ -191,26 +191,25 @@
 ;; (general-create-definer my-leader-def
 ;;   ;; :prefix my-leader
 ;;   :prefix ",")
-
 (use-package corfu
+  :ensure t
+  :custom
+  (corfu-auto t)
+  (corfu-cycle t)
+  (corfu-quit-at-boundary t)
+  (corfu-quit-no-match t)
+  (corfu-preview-current nil)
+  (corfu-min-width 80)
+  (corfu-max-width 100)
+  (corfu-auto-delay 0.2)
+  (corfu-auto-prefix 1)
+  (corfu-on-exact-match nil)
   :init
-  (progn
-    (setq corfu-auto t)
-    (setq corfu-cycle t)
-    (setq corfu-quit-at-boundary t)
-    (setq corfu-quit-no-match t)
-    (setq corfu-preview-current nil)
-    (setq corfu-min-width 80)
-    (setq corfu-max-width 100)
-    (setq corfu-auto-delay 0.2)
-    (setq corfu-auto-prefix 1)
-    (setq corfu-on-exact-match nil)
-    (global-corfu-mode)
-
-    (add-hook 'org-mode-hook
-              (lambda ()
-                (corfu-mode -1)))
-    ))
+  (global-corfu-mode)
+  ;; 可选：如果想让 org-mode 禁用 corfu，解开下面的注释
+  (add-hook 'org-mode-hook (lambda () (corfu-mode -1)))
+  (add-hook 'lisp-interaction-mode-hook (lambda () (corfu-mode -1)))
+  )
 
 (use-package sis
   ;; :hook

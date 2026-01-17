@@ -1,5 +1,15 @@
 ;; 括号匹配
-(show-paren-mode t)
+(show-paren-mode t)	
+;;	  
+(setq-default tab-width 4)
+(define-key input-decode-map [(control ?i)] [control-i])
+;;(define-key input-decode-map [(control ?I)] [(shift control-i)])
+;;(global-set-key (kbd "<control-i>") 'forward-word)
+;;(global-set-key (kbd "<control-i>") 'self-insert-command)
+(global-set-key (kbd "<control-i>")
+				(lambda ()
+				  (interactive)
+				  (insert "\t")))
 
 ;; 禁用启动画面后会自动打开 scratch 缓冲区
 (setq inhibit-startup-screen t)
