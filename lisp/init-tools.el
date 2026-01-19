@@ -191,6 +191,7 @@
 ;; (general-create-definer my-leader-def
 ;;   ;; :prefix my-leader
 ;;   :prefix ",")
+;;	补全相关
 (use-package corfu
   :ensure t
   :custom
@@ -227,12 +228,11 @@
    ;; "com.apple.keylayout.ABC"
    "com.apple.keylayout.ABC"
 
-   ;; 其他语言输入源："rime"、"sogou" 或其他 
    ;; "im.rime.inputmethod.Squirrel.Rime"
    "com.sogou.inputmethod.SCIM.WBX")
 
   ;; 启用 /光标颜色/ 模式
-  (sis-global-cursor-color-mode nil)
+  ;;(sis-global-cursor-color-mode nil)
   ;; 启用 /respect/ 模式
   (sis-global-respect-mode t)
   ;; 为所有缓冲区启用 /context/ 模式

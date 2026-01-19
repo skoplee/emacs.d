@@ -6,7 +6,7 @@
 			(setq tab-width 4)))
 
 ;;
-(setq org-indent-mode 1)
+(setq-default org-indent-mode 1)
 
 (use-package org-contrib
   :pin nongnu)

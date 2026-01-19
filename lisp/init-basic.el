@@ -39,9 +39,10 @@
 
 ;; 记住最近打开的文件
 (use-package recentf
+  :ensure nil
   :hook (after-init . recentf-mode)
   ;; recentf-open since v29.1, recentf-open-files since v22
-  :bind (("C-c r" . #'recentf-open)))
+  :bind (("C-c C-r" . #'recentf-open)))
 
 
 ;; 记住上次的命令
